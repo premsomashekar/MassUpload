@@ -9,6 +9,8 @@ sap.ui.define([
 	 */
     function (Controller, File, JSONModel, MessageBox) {
         "use strict";
+        // make use of conflict at second commit..
+        // dummy line
 
         return Controller.extend("ain.massupload.controller.App", {
             /** 
