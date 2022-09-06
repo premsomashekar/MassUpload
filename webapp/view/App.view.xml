@@ -1,0 +1,65 @@
+<mvc:View
+    controllerName="ain.massupload.controller.App"
+    xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form"
+	xmlns:u="sap.ui.unified" displayBlock="true" xmlns="sap.m"
+>
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}" titleAlignment="Center">
+					<content>
+						<Panel id='uploadData' headerText="{i18n>pFormTitle}">
+							<f:SimpleForm id="MassUpload" editable="true" layout="ResponsiveGridLayout" title="" labelSpanXL="4" labelSpanL="4" labelSpanM="12"
+								labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2"
+								singleContainerFullSize="false">
+								<Label id='lableChooseObj' text="{i18n>ChooseTheObj}"/>
+								<RadioButtonGroup id="rbg1" columns="3" width="100%">
+									<RadioButton id="Model" text="{i18n>Model}" selected="true"/>
+									<RadioButton id="ModelTemplate" text="{i18n>ModelTemplate}"/>
+								</RadioButtonGroup>
+								<Label id='lableDownloadTeplate' displayOnly="true" text="{i18n>DownloadTemplate}"/>
+								<Link id='linkDownloadCSV' text="{i18n>Here}" press=".downloadCSV" target="_blank"/>
+								<Label id='lableFileUploader' labelFor="fileUploader" required="true" text="{i18n>UploadTemplate}"/>
+								<u:FileUploader id="fileUploader" sameFilenameAllowed="true" uploadComplete="handleUploadComplete"></u:FileUploader>
+								<Label id='lableEmp' text=""/>
+								<HBox id='hboxButton' justifyContent="End">
+									<Button id='lableUpload' text="{i18n>Upload}" width="100px" type="Emphasized" press=".onUploadDialogPress" class="sapUiTinyMarginEnd"/>
+								</HBox>
+							</f:SimpleForm>
+						</Panel>
+						<Panel id='panelResults' headerText="{i18n>pResults}">
+							<ScrollContainer id='scrollResults' height="300px" width="100%" vertical="true" focusable="true">
+								<Table id="resultsTable" sticky="ColumnHeaders" items="{ path: '/data' }">
+									<columns>
+										<Column id='colID' minScreenWidth="Tablet" width="30%">
+											<Text id='textID' text="{i18n>ID}"/>
+										</Column>
+										<Column id='colDesc' minScreenWidth="Tablet" width="30%">
+											<Text id='textDesc' text="{i18n>Description}"/>
+										</Column>
+										<Column id='colType' minScreenWidth="Tablet" width="10%">
+											<Text id='textType' text="{i18n>Type}"/>
+										</Column>
+										<Column id='colMessage' minScreenWidth="Tablet" width="30%">
+											<Text id='textMessage' text="{i18n>Message}"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem id='colItems' vAlign="Middle">
+											<cells>
+												<Text id='textItemsID' text="{ID}"/>
+												<Text id='textItemsDesc' text="{Description}"/>
+												<Text id='textItemsType' text="{Type}"/>
+												<Text id='textItemsMessage' text="{Message}"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</ScrollContainer>
+						</Panel>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

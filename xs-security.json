@@ -1,0 +1,38 @@
+{
+    "xsappname": "ainmassupload",
+    "tenant-mode": "dedicated",
+    "description": "Security profile of called application",
+    "scopes": [
+        {
+            "name": "uaa.user",
+            "description": "UAA"
+        },
+        {
+            "name": "$XSAPPNAME.Display",
+            "description": "UAA Display"
+        }
+    ],
+    "role-templates": [
+        {
+            "name": "Token_Exchange",
+            "description": "UAA",
+            "scope-references": [
+                "uaa.user"
+            ]
+        },
+        {
+            "name": "MODEL_EDIT",
+            "description": "MODEL_EDIT",
+            "scope-references": [
+                "$XSAPPNAME.Display"
+            ]
+        },
+        {
+            "name": "TEMPLATE_EDIT",
+            "description": "TEMPLATE_EDIT",
+            "scope-references": [
+                "$XSAPPNAME.Display"
+            ]
+        }
+    ]
+}
