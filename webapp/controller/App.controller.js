@@ -9,11 +9,12 @@ sap.ui.define([
 	 */
     function (Controller, File, JSONModel, MessageBox) {
         "use strict";
+// comment replace
 
         return Controller.extend("ain.massupload.controller.App", {
             /** 
              * Function that is called on init, used to initalize resource bundle
-             * test git
+             * test git1
              */
             onInit: function () {
                 this.resourceBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
